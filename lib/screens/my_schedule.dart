@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:it_forum_omsk/bloc/event_bloc.dart';
-import 'package:it_forum_omsk/bloc/event_event.dart';
-import 'package:it_forum_omsk/bloc/event_state.dart';
-import 'package:it_forum_omsk/schedule/event_container.dart';
-import 'package:it_forum_omsk/custom_widget.dart';
+import 'package:it_forum_omsk/blocs/event_bloc.dart';
+import 'package:it_forum_omsk/blocs/event_event.dart';
+import 'package:it_forum_omsk/blocs/event_state.dart';
+import 'package:it_forum_omsk/widgets/event_container.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar.dart';
 
 
 class MySchedule extends StatelessWidget{

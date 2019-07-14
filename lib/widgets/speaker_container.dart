@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/bloc/speaker_bloc.dart';
-import 'package:it_forum_omsk/database/model.dart';
+import 'package:it_forum_omsk/blocs/speaker_bloc.dart';
+import 'package:it_forum_omsk/models/model_speaker.dart';
 
 
 class SpeakerContainer extends StatelessWidget {

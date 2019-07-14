@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:it_forum_omsk/schedule/schedule.dart' as schedule;
-import 'package:it_forum_omsk/schedule/my_schedule.dart' as my_schedule;
-import 'package:it_forum_omsk/speaker/speaker.dart' as speaker;
-import 'package:it_forum_omsk/about/about.dart' as about;
-import 'package:it_forum_omsk/location/map.dart' as map;
+import 'package:it_forum_omsk/screens/schedule.dart' as schedule;
+import 'package:it_forum_omsk/screens/my_schedule.dart' as my_schedule;
+import 'package:it_forum_omsk/screens/speaker.dart' as speaker;
+import 'package:it_forum_omsk/screens/about.dart' as about;
+import 'package:it_forum_omsk/screens/map.dart' as map;
 
 
 class MenuItem {
@@ -148,7 +148,7 @@ class _MainScreen extends State<MainScreen> {
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
                                 child: Image(
-                                  image: AssetImage("assets/images/vk-logo.png"),
+                                  image: AssetImage("assets/icons/vk-logo.png"),
                                 ),
                               )
                           ),
@@ -173,7 +173,7 @@ class _MainScreen extends State<MainScreen> {
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
                                 child: Image(
-                                  image: AssetImage("assets/images/facebook-logo.png"),
+                                  image: AssetImage("assets/icons/facebook-logo.png"),
                                   width: 25,
                                   height: 25,
                                 ),
@@ -200,7 +200,7 @@ class _MainScreen extends State<MainScreen> {
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
                                 child: Image(
-                                  image: AssetImage("assets/images/instagram-logo.png"),
+                                  image: AssetImage("assets/icons/instagram-logo.png"),
                                 ),
                               )
                           ),

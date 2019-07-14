@@ -1,6 +1,7 @@
 import 'package:sembast/sembast.dart';
-import 'package:it_forum_omsk/database/app_database.dart';
-import 'package:it_forum_omsk/database/model.dart';
+import 'package:it_forum_omsk/repositories/app_database.dart';
+import 'package:it_forum_omsk/models/model_event.dart';
+import 'package:it_forum_omsk/models/model_speaker.dart';
 
 
 class DBLogicEvent {
@@ -49,7 +50,7 @@ class DBLogicEvent {
 
   Future isEmptyEvents() async {
     final snapshot = await _events.find(await db);
-    return (snapshot.isEmpty ? true : false);
+    return snapshot.isEmpty;
   }
 
   Future<List<Event>> getAllEvents() async {
@@ -124,7 +125,7 @@ class DBLogicSpeaker {
 
   Future isEmptySpeakers() async {
     final snapshot = await _speakers.find(await db);
-    return (snapshot.isEmpty ? true : false);
+    return snapshot.isEmpty;
   }
 
   Future<List<Speaker>> getAllSpeakers () async {

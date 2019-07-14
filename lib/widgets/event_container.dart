@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/bloc/event_bloc.dart';
-import 'package:it_forum_omsk/bloc/event_event.dart';
-import 'package:it_forum_omsk/database/model.dart';
+import 'package:it_forum_omsk/blocs/event_bloc.dart';
+import 'package:it_forum_omsk/blocs/event_event.dart';
+import 'package:it_forum_omsk/models/model_event.dart';
 
 
 class EventContainer extends StatelessWidget {

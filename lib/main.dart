@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/main_screen.dart';
+import 'package:it_forum_omsk/screens/main_screen.dart';
 
 
 void main() => runApp(App());

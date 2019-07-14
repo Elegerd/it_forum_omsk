@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:it_forum_omsk/database/model.dart';
-import 'package:it_forum_omsk/database/database_logic.dart';
-import 'package:it_forum_omsk/bloc/speaker_event.dart';
-import 'package:it_forum_omsk/bloc/speaker_state.dart';
+import 'package:it_forum_omsk/models/model_speaker.dart';
+import 'package:it_forum_omsk/repositories/database_logic.dart';
+import 'package:it_forum_omsk/blocs/speaker_event.dart';
+import 'package:it_forum_omsk/blocs/speaker_state.dart';
 
 
 class SpeakerBloc extends Bloc<SpeakerEvent, SpeakerState> {

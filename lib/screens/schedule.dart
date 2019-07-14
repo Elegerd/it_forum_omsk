@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:it_forum_omsk/bloc/event_bloc.dart';
-import 'package:it_forum_omsk/bloc/event_event.dart';
-import 'package:it_forum_omsk/bloc/event_state.dart';
-import 'package:it_forum_omsk/schedule/event_container.dart';
-import 'package:it_forum_omsk/custom_widget.dart';
+import 'package:it_forum_omsk/blocs/event_bloc.dart';
+import 'package:it_forum_omsk/blocs/event_event.dart';
+import 'package:it_forum_omsk/blocs/event_state.dart';
+import 'package:it_forum_omsk/widgets/event_container.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar.dart';
 
 
 class Schedule extends StatelessWidget{
@@ -105,8 +105,8 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
             unselectedLabelColor: Color.fromRGBO(69, 69, 77, 0.8),
             unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
             tabs: tabs,
-            onTap: (int) {
-              tabController.animateTo((tabController.index), duration: Duration(seconds: 5));
+            onTap: (index) {
+              tabController.animateTo((tabController.index));
               setState(() {
                 _eventBloc.dispatch(LoadEvents(tabController.index + 1));
               });

@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:it_forum_omsk/database/model.dart';
-import 'package:it_forum_omsk/database/database_logic.dart';
-import 'package:it_forum_omsk/bloc/event_event.dart';
-import 'package:it_forum_omsk/bloc/event_state.dart';
+import 'package:it_forum_omsk/models/model_event.dart';
+import 'package:it_forum_omsk/repositories/database_logic.dart';
+import 'package:it_forum_omsk/blocs/event_event.dart';
+import 'package:it_forum_omsk/blocs/event_state.dart';
 
 
 class EventBloc extends Bloc<EventEvent, EventState> {

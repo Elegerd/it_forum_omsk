@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:it_forum_omsk/custom_widget.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar.dart';
 
 
 class Map extends StatelessWidget {
@@ -263,7 +263,8 @@ class _MapContainer extends State<MapContainer> {
         Marker(
             markerId: MarkerId('holl'),
             position: LatLng(lat, long),
-            infoWindow: InfoWindow(title: 'Конгресс-холл',  snippet: 'Добро пожаловать на Омский IT-форум 2019')),
+            infoWindow: InfoWindow(title: 'Конгресс-холл',  snippet: 'Добро пожаловать на Омский IT-форум 2019')
+        ),
       );
     });
   }

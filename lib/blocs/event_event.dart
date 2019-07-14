@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:it_forum_omsk/database/model.dart';
+import 'package:it_forum_omsk/models/model_event.dart';
 
 
 @immutable

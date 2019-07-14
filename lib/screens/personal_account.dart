@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/custom_widget.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar.dart';
 
 
 class PersonalAccount extends StatelessWidget {

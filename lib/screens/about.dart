@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/custom_widget.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 
 
 class About extends StatelessWidget{
@@ -47,7 +48,7 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
         'Организаторы',
         style: TextStyle(
           fontFamily: 'Montserrat',
-          fontSize: 16.0,
+          fontSize: 15.0,
         ),
       ),
     ),
@@ -102,7 +103,6 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
                     width: MediaQuery.of(context).size.width - 10,
                     //height: 250,
                     child:  Column(
-                      //mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Center(
