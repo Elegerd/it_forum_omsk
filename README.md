@@ -5,7 +5,7 @@
 
 ## Дизайн мобильного приложения
 
-![Alt-текст](https://github.com/Elegerd/it_forum_omsk/screenshot/Screenshot.png "Speaker IT-Forum")
+![Alt-текст](https://github.com/Elegerd/it_forum_omsk/blob/master/screenshot/Screenshot.png "Speaker IT-Forum")
 
 ## Запуск мобильного приложения
 
