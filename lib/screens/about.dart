@@ -102,8 +102,8 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
                   child: Container(
                     width: MediaQuery.of(context).size.width - 10,
                     //height: 250,
-                    child:  Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    child:  ListView(
+                       // crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Center(
                             child: Text('V Международный Омский IT-форум',

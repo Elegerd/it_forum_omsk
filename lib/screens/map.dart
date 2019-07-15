@@ -47,53 +47,57 @@ class _MapContainer extends State<MapContainer> {
     });
   }
 
-  Widget map(){
-    return Padding(
-      padding: EdgeInsets.only(top: 55,left: 10,right: 10,bottom: 120), //EdgeInsets.symmetric(horizontal: 25, vertical: 150),
-      child: Material(
-        elevation: 5.0,
-        borderRadius: BorderRadius.circular(7.0),
-        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Color.fromRGBO(31, 32, 65, 0.8)),
-        child: Container(
-          color: Color.fromRGBO(224, 224, 224, 1),
-          child: Stack(
-            children: <Widget>[
-              GoogleMap(
-                markers: _markers,
-                mapType: _defaultMapType,
-                myLocationEnabled: true,
-                initialCameraPosition: _initialPosition,
-                onMapCreated: _onMapCreated,
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 80, right: 10),
-                alignment: Alignment.topRight,
-                child: Column(
-                  children: <Widget>[
-                    FloatingActionButton(
-                        child: Icon(Icons.layers),
-                        elevation: 5,
-                        backgroundColor: Color.fromARGB(200, 0 ,26, 128),
-                        onPressed: () {
-                          _changeMapType();
-                          //print('Changing the Map Type');
-                        }),
-                    FloatingActionButton(
-                        child: Icon(Icons.card_travel),
-                        elevation: 5,
-                        backgroundColor: Color.fromARGB(200, 0 ,26, 128),
-                        onPressed: () {
-                          _goToForum();
-                        }
-                    ),
-                  ],
+  Widget map() {
+      return Padding(
+        padding: EdgeInsets.only(top: 55, left: 10, right: 10, bottom: 120),
+        //EdgeInsets.symmetric(horizontal: 25, vertical: 150),
+        child: Material(
+          elevation: 5.0,
+          borderRadius: BorderRadius.circular(7.0),
+          textStyle: TextStyle(fontSize: 16,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Roboto',
+              color: Color.fromRGBO(31, 32, 65, 0.8)),
+          child: Container(
+            color: Color.fromRGBO(224, 224, 224, 1),
+            child: Stack(
+              children: <Widget>[
+                GoogleMap(
+                  markers: _markers,
+                  mapType: _defaultMapType,
+                  myLocationEnabled: true,
+                  initialCameraPosition: _initialPosition,
+                  onMapCreated: _onMapCreated,
                 ),
-              ),
-            ],
+                Container(
+                  margin: EdgeInsets.only(top: 80, right: 10),
+                  alignment: Alignment.topRight,
+                  child: Column(
+                    children: <Widget>[
+                      FloatingActionButton(
+                          child: Icon(Icons.layers),
+                          elevation: 5,
+                          backgroundColor: Color.fromARGB(200, 0, 26, 128),
+                          onPressed: () {
+                            _changeMapType();
+                            //print('Changing the Map Type');
+                          }),
+                      FloatingActionButton(
+                          child: Icon(Icons.card_travel),
+                          elevation: 5,
+                          backgroundColor: Color.fromARGB(200, 0, 26, 128),
+                          onPressed: () {
+                            _goToForum();
+                          }
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
   }
 
 
@@ -139,117 +143,6 @@ class _MapContainer extends State<MapContainer> {
         ),
       ),
     );
-
-    /*Container(
-      child: Stack(
-        children: <Widget>[
-
-          Align(
-          alignment: Alignment(0.0, 0.3),
-          child: Text("widget"),
-        ),
-
-
-          Padding(
-            padding: EdgeInsets.only(top: 25,left: 25,right: 25,bottom: 250), //EdgeInsets.symmetric(horizontal: 25, vertical: 150),
-            child: Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(7.0),
-              textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Color.fromRGBO(31, 32, 65, 0.8)),
-              child: Container(
-                color: Color.fromRGBO(224, 224, 224, 1),
-                child: Stack(
-                  children: <Widget>[
-                    GoogleMap(
-                      markers: _markers,
-                      mapType: _defaultMapType,
-                      myLocationEnabled: true,
-                      initialCameraPosition: _initialPosition,
-                      onMapCreated: _onMapCreated,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 80, right: 10),
-                      alignment: Alignment.topRight,
-                      child: Column(
-                        children: <Widget>[
-                          FloatingActionButton(
-                              child: Icon(Icons.layers),
-                              elevation: 5,
-                              backgroundColor: Color.fromARGB(200, 0 ,26, 128),
-                              onPressed: () {
-                                _changeMapType();
-                                //print('Changing the Map Type');
-                              }),
-                          FloatingActionButton(
-                              child: Icon(Icons.card_travel),
-                              elevation: 5,
-                              backgroundColor: Color.fromARGB(200, 0 ,26, 128),
-                              onPressed: () {
-                                _goToForum();
-                              }
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Center(
-            child: Text('https://oiitf.ru/',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14, height: 1.5, fontFamily: 'Montserrat',color: Color.fromRGBO(31, 32, 65, 0.8)
-              ),
-            ),
-          ),
-        ],
-      )/*Padding(
-        padding: EdgeInsets.only(top: 25,left: 25,right: 25,bottom: 250), //EdgeInsets.symmetric(horizontal: 25, vertical: 150),
-        child: Material(
-          elevation: 5.0,
-          borderRadius: BorderRadius.circular(7.0),
-          textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Color.fromRGBO(31, 32, 65, 0.8)),
-          child: Container(
-            color: Color.fromRGBO(224, 224, 224, 1),
-            child: Stack(
-              children: <Widget>[
-                GoogleMap(
-                  markers: _markers,
-                  mapType: _defaultMapType,
-                  myLocationEnabled: true,
-                  initialCameraPosition: _initialPosition,
-                  onMapCreated: _onMapCreated,
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 80, right: 10),
-                  alignment: Alignment.topRight,
-                  child: Column(
-                    children: <Widget>[
-                      FloatingActionButton(
-                          child: Icon(Icons.layers),
-                          elevation: 5,
-                          backgroundColor: Color.fromARGB(200, 0 ,26, 128),
-                          onPressed: () {
-                            _changeMapType();
-                            //print('Changing the Map Type');
-                          }),
-                      FloatingActionButton(
-                        child: Icon(Icons.card_travel),
-                        elevation: 5,
-                          backgroundColor: Color.fromARGB(200, 0 ,26, 128),
-                          onPressed: () {
-                            _goToForum();
-                          }
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),*/
-    );*/
   }
 
   Future<void> _goToForum() async {

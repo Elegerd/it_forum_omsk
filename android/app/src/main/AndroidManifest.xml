@@ -10,6 +10,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="IT Forum"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDqCkIG0L8wL647kpjW63CLmaQD9lIXaXI"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
