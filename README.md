@@ -1,6 +1,6 @@
 # IT-Forum Omsk
 
-  Мобильное приложение разрабатываемое в рамках @Mobilatorium
+  Мобильное приложение разрабатываемое в рамках [@Mobilatorium](https://vk.com/mobilatorium)
 для омского IT-Форума.
 
 ## Дизайн мобильного приложения
@@ -13,4 +13,4 @@
 Несколько ссылок, которые помогут вам:
 - [Установка](https://flutter.dev/docs/get-started/install)
 - [Документация](https://flutter.dev/docs)
-- [Firebase](https://flutter.dev/docs)https://firebase.google.com/docs
+- [Firebase](https://flutter.dev/docs)
