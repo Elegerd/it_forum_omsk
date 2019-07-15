@@ -98,12 +98,10 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 10,/* left: 90*/),
+                  padding: EdgeInsets.only(top: 10),
                   child: Container(
                     width: MediaQuery.of(context).size.width - 10,
-                    //height: 250,
                     child:  ListView(
-                       // crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Center(
                             child: Text('V Международный Омский IT-форум',
@@ -140,7 +138,7 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
                               ),
                             ),
                           ),
-                    ]),
+                        ]),
                   ),
                 ),
               ],

@@ -27,7 +27,7 @@ class Speaker extends StatelessWidget {
       body: Column(
         children: <Widget>[
           CustomAppBar(title, 100, keyState),
-          Flexible(
+          Expanded(
             child: BlocProvider(
               builder: (_context) => SpeakerBloc(),
               child: SpeakerList(),
@@ -76,34 +76,30 @@ class _SpeakerList extends State<SpeakerList> {
             child: CircularProgressIndicator(),
           );
         } else if (state is SpeakersLoaded) {
-          return Column (
-              children: <Widget>[
-                ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: state.speakers.length,
-                  itemBuilder: (context, index) {
-                    final displayedSpeaker = state.speakers[index];
-                    return GestureDetector(child: SpeakerContainer(displayedSpeaker, _eventBloc), onTap: () {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>
-                            Column(
-                              children: <Widget>[
-                                SpeakerCard(displayedSpeaker, 300),
-                                Flexible(
-                                  child: BlocProvider(
-                                    builder: (_context) => EventBloc(),
-                                    child: DetailPage(displayedSpeaker),
-                                  ),
-                                )
-                              ],
+          return ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemCount: state.speakers.length,
+            itemBuilder: (context, index) {
+              final displayedSpeaker = state.speakers[index];
+              return GestureDetector(child: SpeakerContainer(displayedSpeaker, _eventBloc), onTap: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) =>
+                      Column(
+                        children: <Widget>[
+                          SpeakerCard(displayedSpeaker, 300),
+                          Expanded(
+                            child: BlocProvider(
+                              builder: (_context) => EventBloc(),
+                              child: DetailPage(displayedSpeaker),
                             ),
-                        ),
-                      );
-                    });
-                  },
-                ),
-              ]
+                          )
+                        ],
+                      ),
+                  ),
+                );
+              });
+            },
           );
         }
         else {

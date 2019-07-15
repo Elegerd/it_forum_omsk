@@ -21,20 +21,18 @@ dependencies:
     sdk: flutter
   http: ^0.12.0+2
   url_launcher: ^5.0.5
-  pedantic: ^1.8.0
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the Cupertino Icons class for iOS style icons.
+  pedantic: ^1.7.0
   cupertino_icons: ^0.1.2
-  # google_maps_flutter
   google_maps_flutter: ^0.5.19+2
-  # NoSQL DB
   sembast: ^1.17.0
   path_provider: ^1.1.2
-  # Used for BLoC state management
   flutter_bloc: ^0.19.0
   equatable: ^0.2.6
+  cloud_firestore: ^0.12.7
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   flutter_launcher_icons: ^0.7.2+1
 
 flutter_icons:

@@ -1,16 +1,16 @@
-# it_forum_omsk
+# IT-Forum Omsk
 
-IT Forum Omsk
+  Мобильное приложение разрабатываемое в рамках @Mobilatorium
+для омского IT-Форума.
 
-## Getting Started
+## Дизайн мобильного приложения
 
-This project is a starting point for a Flutter application.
+![Alt-текст](https://github.com/Elegerd/it_forum_omsk/screenshot/Screenshot.png "Speaker IT-Forum")
 
-A few resources to get you started if this is your first Flutter project:
+## Запуск мобильного приложения
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Данный проект написан на фреймворке flutter.
+Несколько ссылок, которые помогут вам:
+- [Установка](https://flutter.dev/docs/get-started/install)
+- [Документация](https://flutter.dev/docs)
+- [Firebase](https://flutter.dev/docs)https://firebase.google.com/docs

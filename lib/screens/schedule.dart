@@ -19,7 +19,7 @@ class Schedule extends StatelessWidget{
       body: Column(
         children: <Widget>[
           CustomAppBar("$title форума", 100, keyState),
-          Flexible(
+          Expanded(
             child: BlocProvider(
               builder: (_context) => EventBloc(),
               child: EventList(),
@@ -119,7 +119,8 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
               if (state is EventsLoading) {
                 return Center(
                     child: SizedBox(
-                      height: 50, child: CircularProgressIndicator(),)
+                      height: 50, child: CircularProgressIndicator(),
+                    ),
                 );
               } else if (state is EventsLoaded) {
                 return Expanded(
@@ -132,8 +133,7 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
                           itemCount: state.events.length,
                           itemBuilder: (context, index) {
                             final displayedEvent = state.events[index];
-                            return EventContainer(
-                                displayedEvent, _eventBloc, false);
+                            return EventContainer(displayedEvent, _eventBloc, false);
                           },
                         ),
                       ),
@@ -142,8 +142,7 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
                           itemCount: state.events.length,
                           itemBuilder: (context, index) {
                             final displayedEvent = state.events[index];
-                            return EventContainer(
-                                displayedEvent, _eventBloc, false);
+                            return EventContainer(displayedEvent, _eventBloc, false);
                           },
                         ),
                       ),
@@ -152,8 +151,7 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
                           itemCount: state.events.length,
                           itemBuilder: (context, index) {
                             final displayedEvent = state.events[index];
-                            return EventContainer(
-                                displayedEvent, _eventBloc, false);
+                            return EventContainer(displayedEvent, _eventBloc, false);
                           },
                         ),
                       ),
