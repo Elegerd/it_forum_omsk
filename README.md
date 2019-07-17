@@ -5,11 +5,18 @@
 
 ## Дизайн мобильного приложения
 
-![Alt-текст](https://github.com/Elegerd/it_forum_omsk/blob/master/screenshot/Screenshot.png "Speaker IT-Forum")
+![Alt-текст](https://github.com/Elegerd/it_forum_omsk/blob/master/screenshots/Screenshot.png "Speaker IT-Forum")
 
 ## Запуск мобильного приложения
 
-Данный проект написан на фреймворке flutter.
+  IT-Forum Omsk можно запустить, как и любое другое приложение Flutter,
+либо через пользовательский интерфейс IntelliJ, либо с помощью следующей
+команды из каталога:
+
+```
+flutter run
+```
+
 Несколько ссылок, которые помогут вам:
 - [Установка](https://flutter.dev/docs/get-started/install)
 - [Документация](https://flutter.dev/docs)

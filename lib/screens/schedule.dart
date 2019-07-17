@@ -5,6 +5,7 @@ import 'package:it_forum_omsk/blocs/event_event.dart';
 import 'package:it_forum_omsk/blocs/event_state.dart';
 import 'package:it_forum_omsk/widgets/event_container.dart';
 import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class Schedule extends StatelessWidget{
@@ -89,6 +90,49 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
+  Widget _eventContainer(String name, String location, String timeSpending) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      child: Material(
+        elevation: 5.0,
+        borderRadius: BorderRadius.circular(7.0),
+        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Color.fromRGBO(31, 32, 65, 0.8)),
+        child: Container(
+          height: 80,
+          color: Color.fromRGBO(224, 224, 224, 1),
+          child: Stack(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 5, left: 10),
+                child: Text(name),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 45, left: 11),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Icon(Icons.schedule, color: Color.fromRGBO(31, 32, 65, 0.8), size: 28,),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5, left: 2),
+                      child: Container(
+                        width: 100,
+                        child: Text(timeSpending, style: TextStyle(fontWeight: FontWeight.w400),),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 5, left: 20),
+                      child: Text(location, style: TextStyle(fontWeight: FontWeight.w400),),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,14 +172,35 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
                     physics: NeverScrollableScrollPhysics(),
                     controller: tabController,
                     children: <Widget>[
-                      Container(
-                        child: ListView.builder(
-                          itemCount: state.events.length,
-                          itemBuilder: (context, index) {
-                            final displayedEvent = state.events[index];
-                            return EventContainer(displayedEvent, _eventBloc, false);
-                          },
-                        ),
+                      StreamBuilder<DocumentSnapshot>(
+                        stream: Firestore.instance.collection('events').document('day_1').snapshots(),
+                        builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+                          if (snapshot.hasError) {
+                            return Text('Error: ${snapshot.error}');
+                          }
+                          switch (snapshot.connectionState) {
+                            case ConnectionState.waiting:
+                              return Center(child: CircularProgressIndicator());
+                            default:
+                              return ListView(
+                                  children: <Widget>[
+                                    ListView.builder(
+                                      scrollDirection: Axis.vertical,
+                                      shrinkWrap: true,
+                                      itemCount: snapshot.data.data.length,
+                                      itemBuilder: (context, index) {
+                                        var i = index + 1;
+                                        var data = snapshot.data.data['$i'];
+                                        return _eventContainer(
+                                            data['name'],
+                                            data['location'],
+                                            data['timeSpending']);
+                                      },
+                                    ),
+                                  ],
+                              );
+                          }
+                        },
                       ),
                       Container(
                         child: ListView.builder(
