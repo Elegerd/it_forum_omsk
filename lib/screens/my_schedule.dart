@@ -9,8 +9,7 @@ import 'package:it_forum_omsk/widgets/custom_appbar.dart';
 
 class MySchedule extends StatelessWidget{
   final String title;
-  final keyState;
-  MySchedule(this.title, this.keyState);
+  MySchedule(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ class MySchedule extends StatelessWidget{
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100, keyState),
+          CustomAppBar(title, 100),
           Expanded(
             child: BlocProvider(
               builder: (_context) => EventBloc(),

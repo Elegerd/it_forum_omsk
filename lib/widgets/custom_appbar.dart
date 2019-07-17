@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget {
   final String title;
   final int size;
-  final keyStay;
 
-  CustomAppBar(this.title, this.size, this.keyStay);
+  CustomAppBar(this.title, this.size);
   @override
   Widget build(BuildContext context) {
     final double statusBarSize = MediaQuery.of(context).padding.top;
@@ -34,15 +33,6 @@ class CustomAppBar extends StatelessWidget {
             title: Center(
               child: Text(title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400, fontFamily: 'Roboto', color: Colors.white),),),
             backgroundColor: Colors.transparent,
-            leading: Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: IconButton(
-                icon: const Icon(Icons.format_list_bulleted, size: 28,),
-                onPressed: () {
-                  keyStay.openDrawer();
-                },
-              ),
-            ),
           ),
         ),
       ),

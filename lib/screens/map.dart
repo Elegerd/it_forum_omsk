@@ -6,8 +6,7 @@ import 'package:it_forum_omsk/widgets/custom_appbar.dart';
 
 class Map extends StatelessWidget {
   final String title;
-  final keyState;
-  Map(this.title, this.keyState);
+  Map(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class Map extends StatelessWidget {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100, keyState),
+          CustomAppBar(title, 100),
           Expanded(
             child: MapContainer(),
           ),

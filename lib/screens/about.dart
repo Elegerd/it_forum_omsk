@@ -5,8 +5,7 @@ import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 
 class About extends StatelessWidget{
   final String title;
-  final keyState;
-  About(this.title, this.keyState);
+  About(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class About extends StatelessWidget{
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100, keyState),
+          CustomAppBar(title, 100),
           Expanded(
             child: AboutTheForum(),
           ),

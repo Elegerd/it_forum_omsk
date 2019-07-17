@@ -17,8 +17,7 @@ import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 class Speaker extends StatelessWidget {
 
   final String title;
-  final keyState;
-  Speaker(this.title, this.keyState);
+  Speaker(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class Speaker extends StatelessWidget {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100, keyState),
+          CustomAppBar(title, 100),
           Expanded(
             child: BlocProvider(
               builder: (_context) => SpeakerBloc(),
