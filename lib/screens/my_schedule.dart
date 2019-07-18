@@ -4,7 +4,7 @@ import 'package:it_forum_omsk/blocs/event_bloc.dart';
 import 'package:it_forum_omsk/blocs/event_event.dart';
 import 'package:it_forum_omsk/blocs/event_state.dart';
 import 'package:it_forum_omsk/widgets/event_container.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
 
 
 class MySchedule extends StatelessWidget{
@@ -17,7 +17,7 @@ class MySchedule extends StatelessWidget{
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100),
+          CustomAppBar(title),
           Expanded(
             child: BlocProvider(
               builder: (_context) => EventBloc(),

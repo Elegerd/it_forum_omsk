@@ -8,7 +8,7 @@ import 'package:it_forum_omsk/blocs/event_event.dart';
 import 'package:it_forum_omsk/blocs/event_state.dart';
 import 'package:it_forum_omsk/widgets/event_container.dart';
 import 'package:it_forum_omsk/widgets/speaker_container.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
 import 'package:it_forum_omsk/widgets/speaker_card.dart';
 import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 
@@ -25,7 +25,7 @@ class Speaker extends StatelessWidget {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100),
+          CustomAppBar(title/*, 100*/),
           Expanded(
             child: BlocProvider(
               builder: (_context) => SpeakerBloc(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
@@ -13,7 +13,7 @@ class Schedule extends StatelessWidget{
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar("$title форума", 100),
+          CustomAppBar("$title форума"),
           Expanded(child: EventList()),
         ],
       ),

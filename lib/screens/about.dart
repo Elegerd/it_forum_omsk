@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
 import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 
 
@@ -13,7 +13,7 @@ class About extends StatelessWidget{
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100),
+          CustomAppBar(title),
           Expanded(
             child: AboutTheForum(),
           ),

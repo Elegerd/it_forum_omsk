@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar.dart';
+import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
 
 
 class Map extends StatelessWidget {
@@ -14,7 +14,7 @@ class Map extends StatelessWidget {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title, 100),
+          CustomAppBar(title),
           Expanded(
             child: MapContainer(),
           ),
@@ -101,7 +101,7 @@ class _MapContainer extends State<MapContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 15,right: 15, top: 25,bottom: 100),//EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 25),  //EdgeInsets.only(left: 15,right: 15, top: 25,bottom: 100),
       child: Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(7.0),
