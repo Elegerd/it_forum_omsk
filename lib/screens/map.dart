@@ -34,7 +34,7 @@ class _MapContainer extends State<MapContainer> {
   Completer<GoogleMapController> _controller = Completer();
   MapType _defaultMapType = MapType.normal;
   final Set<Marker> _markers = Set();
-  final double _zoom = 15;
+  final double _zoom = 17;
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
@@ -72,20 +72,24 @@ class _MapContainer extends State<MapContainer> {
                 alignment: Alignment.topRight,
                 child: Column(
                   children: <Widget>[
-                    FloatingActionButton(
-                        child: Icon(Icons.layers),
-                        elevation: 5,
-                        backgroundColor: Color.fromARGB(200, 0, 26, 128),
-                        onPressed: () {
-                          _changeMapType();
-                        }),
-                    FloatingActionButton(
-                        child: Icon(Icons.card_travel),
-                        elevation: 5,
-                        backgroundColor: Color.fromARGB(200, 0, 26, 128),
-                        onPressed: () {
-                          _goToForum();
-                        }
+                  SizedBox(
+                    child: FloatingActionButton(
+                      child: Icon(Icons.layers),
+                      elevation: 5,
+                      backgroundColor: Color.fromARGB(200, 0, 26, 128),
+                      onPressed: () {
+                        _changeMapType();
+                      }),
+                ),
+                    SizedBox(
+                      child: FloatingActionButton(
+                          child: Icon(Icons.card_travel),
+                          elevation: 5,
+                          backgroundColor: Color.fromARGB(200, 0, 26, 128),
+                          onPressed: () {
+                            _goToForum();
+                          }
+                      ),
                     ),
                   ],
                 ),

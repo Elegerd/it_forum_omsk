@@ -25,7 +25,7 @@ class Speaker extends StatelessWidget {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title/*, 100*/),
+          CustomAppBar(title),
           Expanded(
             child: BlocProvider(
               builder: (_context) => SpeakerBloc(),

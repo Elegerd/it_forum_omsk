@@ -11,7 +11,7 @@
         android:label="IT-Forum Omsk"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDqCkIG0L8wL647kpjW63CLmaQD9lIXaXI"/>
+            android:value="AIzaSyB2E0kE8bKmOLIDxyVXbAAfcTGa9qz2kQo"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -97,7 +97,7 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 10),
+                  padding: EdgeInsets.only(top: 5, right: 5,left: 5),
                   child: Container(
                     width: MediaQuery.of(context).size.width - 10,
                     child:  ListView(
