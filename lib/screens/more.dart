@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
-import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
+import 'package:it_forum_omsk/widgets/more_list.dart';
 
 
-class About extends StatelessWidget{
+class More extends StatelessWidget{
   final String title;
-  About(this.title);
+  More(this.title);
+
+  static const appTitleColor = Color.fromRGBO(69, 69, 77, 1);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(238, 238, 238, 1),
-      body: Column(
-        children: <Widget>[
-          CustomAppBar(title),
-          Expanded(
-            child: AboutTheForum(),
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: AppBar(
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: Padding(
+            padding: EdgeInsets.only(top: 30),
+            child: Text(title,
+              style: TextStyle(color: appTitleColor, fontSize: 24),
+            ),
           ),
-        ],
+        ),
       ),
+      body: MoreList(),
     );
   }
 }
 
+/*
 class AboutTheForum extends StatefulWidget{
   @override
   _AboutTheForum createState() => _AboutTheForum();
@@ -171,3 +180,4 @@ class _AboutTheForum extends State<AboutTheForum> with SingleTickerProviderState
     );
   }
 }
+*/

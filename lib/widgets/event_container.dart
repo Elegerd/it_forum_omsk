@@ -1,128 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/blocs/event_bloc.dart';
-import 'package:it_forum_omsk/blocs/event_event.dart';
-import 'package:it_forum_omsk/models/model_event.dart';
 
 
 class EventContainer extends StatelessWidget {
-  final Event event;
-  final EventBloc bloc;
-  final bool favorite;
-  const EventContainer(this.event, this.bloc, this.favorite);
+  final event;
+  const EventContainer(this.event);
 
-  Widget _buildMenu(Event event, EventBloc bloc, context) {
+  static const iconColor = Color.fromRGBO(123, 123, 130, 0.5);
+  static const contentColor = Color.fromRGBO(31, 32, 65, 0.8);
+  static const contentStyle = TextStyle(fontWeight: FontWeight.w400);
+  static const titleStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: contentColor);
+
+  Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: Material(
-        elevation: 5.0,
-        borderRadius: BorderRadius.circular(7.0),
-        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Color.fromRGBO(31, 32, 65, 0.8)),
-        child: Container(
-          height: 80,
-          color: Color.fromRGBO(224, 224, 224, 1),
-          child: Stack(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 5, left: 10),
-                child: Text(event.nameEvent),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 45, left: 11),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Icon(Icons.schedule, color: Color.fromRGBO(31, 32, 65, 0.8), size: 28,),
-                    Padding(
-                      padding: EdgeInsets.only(top: 5, left: 2),
-                      child: Container(
-                        width: 100,
-                        child: Text(event.timeSpending, style: TextStyle(fontWeight: FontWeight.w400),),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 5, left: 20),
-                      child: Text(event.location, style: TextStyle(fontWeight: FontWeight.w400),),
-                    ),
-                  ],
+        color: Colors.white,
+        elevation: 2.0,
+        borderRadius: BorderRadius.circular(2.0),
+        textStyle: titleStyle,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(bottom: 10, top: 10, left: 15, right: 30),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.only(bottom: 2),
+                child: Text(event['name'] ?? ""),
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                        width: 2, color: Color.fromRGBO(124, 125, 141, 1),
+                      )
+                  ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 15, left: MediaQuery.of(context).size.width - 95),
-                child: IconButton(
-                  icon: event.chosen?
-                  Icon(Icons.check_circle_outline, size: 50, color: Color.fromRGBO(31, 32, 65, 0.8)) :
-                  Icon(Icons.radio_button_unchecked, size: 50, color: Color.fromRGBO(31, 32, 65, 0.8)),
-                  onPressed: () {
-                    bloc.dispatch(ModifyEvent(event));
-                    if (favorite) {
-                      bloc.dispatch(LoadFavoriteEvents());
-                    }
-                  },
-                ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10, left: 10),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Icon(Icons.location_on, color: iconColor, size: 28,),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5, left: 5),
+                    child: Text(event['location'] ?? "Null", style: contentStyle),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10, left: 10),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Icon(Icons.schedule, color: iconColor, size: 28,),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5, left: 5),
+                    child: Text(event['time'] ?? "Null", style: contentStyle),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildMenu(this.event, this.bloc, context);
-  }
-}
-
-class EventContainerNoButton extends StatelessWidget {
-  final Event event;
-  final EventBloc bloc;
-  const EventContainerNoButton(this.event, this.bloc);
-
-  Widget _buildMenu(Event event, EventBloc bloc, context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child: Material(
-        elevation: 5.0,
-        borderRadius: BorderRadius.circular(7.0),
-        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: Color.fromRGBO(31, 32, 65, 0.8)),
-        child: Container(
-          height: 80,
-          color: Color.fromRGBO(224, 224, 224, 1),
-          child: Stack(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 5, left: 10),
-                child: Text(event.nameEvent),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 45, left: 11),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Icon(Icons.schedule, color: Color.fromRGBO(31, 32, 65, 0.8), size: 28,),
-                    Padding(
-                      padding: EdgeInsets.only(top: 5, left: 2),
-                      child: Container(
-                        width: 100,
-                        child: Text(event.timeSpending, style: TextStyle(fontWeight: FontWeight.w400),),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 5, left: 20),
-                      child: Text(event.location, style: TextStyle(fontWeight: FontWeight.w400),),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildMenu(this.event, this.bloc, context);
   }
 }

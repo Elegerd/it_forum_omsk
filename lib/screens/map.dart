@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:it_forum_omsk/widgets/custom_appbar_v2.dart';
 
 
 class Map extends StatelessWidget {
@@ -14,7 +13,6 @@ class Map extends StatelessWidget {
       backgroundColor: Color.fromRGBO(238, 238, 238, 1),
       body: Column(
         children: <Widget>[
-          CustomAppBar(title),
           Expanded(
             child: MapContainer(),
           ),

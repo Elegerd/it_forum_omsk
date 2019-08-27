@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:it_forum_omsk/widgets/speaker_list.dart';
 
 
-class Speaker extends StatelessWidget {
+class News extends StatelessWidget{
   final String title;
-  Speaker(this.title);
+  News(this.title);
 
   static const appTitleColor = Color.fromRGBO(69, 69, 77, 1);
 
@@ -26,7 +25,6 @@ class Speaker extends StatelessWidget {
           ),
         ),
       ),
-      body: SpeakerList(),
     );
   }
 }

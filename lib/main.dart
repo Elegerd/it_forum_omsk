@@ -3,7 +3,6 @@ import 'package:it_forum_omsk/screens/main_screen.dart';
 import 'package:flutter/services.dart';
 
 
-//void main() => runApp(App());
 void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
@@ -15,7 +14,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "IT-FORUM",
-      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: MainScreen(),
     );

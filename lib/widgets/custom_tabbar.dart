@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 
 Widget customTabBar(List<Tab> tabs, var tabController){
+  var tabColor = Color.fromRGBO(124, 125, 141, 1);
+  var tabSelectedColor = Color.fromRGBO(52, 152, 219, 1);
   return TabBar(
     controller: tabController,
-    indicatorColor: Color.fromRGBO(69, 69, 77, 0.8),
+    indicatorColor: tabSelectedColor,
     indicatorSize: TabBarIndicatorSize.tab,
     indicatorWeight: 3.0,
     isScrollable: true,
-    labelColor: Color.fromRGBO(69, 69, 77, 0.8),
-    labelStyle: TextStyle(fontWeight: FontWeight.w800),
-    unselectedLabelColor: Color.fromRGBO(69, 69, 77, 0.8),
+    labelColor: tabSelectedColor,
+    labelStyle: TextStyle(fontWeight: FontWeight.w900),
+    unselectedLabelColor: tabColor,
     unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
     tabs: tabs,
   );
