@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:it_forum_omsk/widgets/event_favourite_list.dart';
 
 
 class MySchedule extends StatelessWidget{
@@ -18,13 +19,14 @@ class MySchedule extends StatelessWidget{
           backgroundColor: Colors.white,
           centerTitle: true,
           title: Padding(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: 25),
             child: Text(title,
               style: TextStyle(color: appTitleColor, fontSize: 24),
             ),
           ),
         ),
       ),
+      body: EventFavouriteList(),
     );
   }
 }

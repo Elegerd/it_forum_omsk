@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:it_forum_omsk/widgets/speaker_container.dart';
 import 'package:it_forum_omsk/widgets/speaker_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class SpeakerList extends StatefulWidget {
@@ -10,6 +11,8 @@ class SpeakerList extends StatefulWidget {
 }
 
 class _SpeakerList extends State<SpeakerList> {
+
+  static const mainColor = Color.fromRGBO(50, 21, 121, 1);
 
   @override
   void initState() {
@@ -34,7 +37,12 @@ class _SpeakerList extends State<SpeakerList> {
         }
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: SpinKitPulse(
+                color: mainColor,
+                size: 10.0,
+              ),
+            );
           default:
             return ListView.builder(
               scrollDirection: Axis.vertical,

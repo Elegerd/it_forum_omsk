@@ -3,6 +3,7 @@ import 'package:it_forum_omsk/widgets/event_container.dart';
 import 'package:it_forum_omsk/widgets/event_card.dart';
 import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class EventList extends StatefulWidget {
@@ -15,11 +16,11 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
   TabController tabController;
   List<Tab> tabs;
 
+  static const mainColor = Color.fromRGBO(50, 21, 121, 1);
   static const tabStyle = TextStyle(fontFamily: 'Roboto', fontSize: 16.0);
 
   @override
   void initState() {
-    super.initState();
     tabs = [
       Tab(
         child: Text('23 октября',
@@ -38,6 +39,7 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
       ),
     ];
     tabController = TabController(vsync: this, length: tabs.length);
+    super.initState();
   }
 
   @override
@@ -80,19 +82,25 @@ class _EventList extends State<EventList> with SingleTickerProviderStateMixin {
         }
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: SpinKitPulse(
+                color: mainColor,
+                size: 10.0,
+              ),
+            );
           default:
             return ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: snapshot.data.data['array_events'].length,
               itemBuilder: (context, index) {
                 var data = snapshot.data.data['array_events'][index];
+                var documentId = snapshot.data.documentID;
                 return GestureDetector(
                   child: EventContainer(data),
                   onTap: () {
                     Navigator.push(context,
                       MaterialPageRoute(
-                        builder: (context) => EventCard(data),
+                        builder: (context) => EventCard(index, documentId, data),
                       ),
                     );
                   },

@@ -18,7 +18,7 @@ class News extends StatelessWidget{
           backgroundColor: Colors.white,
           centerTitle: true,
           title: Padding(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: 25),
             child: Text(title,
               style: TextStyle(color: appTitleColor, fontSize: 24),
             ),

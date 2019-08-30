@@ -7,17 +7,37 @@ class Map extends StatelessWidget {
   final String title;
   Map(this.title);
 
+  static const iconColor = Color.fromRGBO(123, 123, 130, 0.5);
+  static const appTitleColor = Color.fromRGBO(69, 69, 77, 1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(238, 238, 238, 1),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: MapContainer(),
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0),
+        child: AppBar(
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          leading: Padding(
+            padding: EdgeInsets.only(left: 10, top: 20),
+            child: IconButton(
+              icon: Icon(Icons.arrow_back_ios, size: 20, color: iconColor),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
           ),
-        ],
+          title: Padding(
+            padding: EdgeInsets.only(top: 25),
+            child: Text(title,
+              style: TextStyle(color: appTitleColor, fontSize: 24),
+            ),
+          ),
+        ),
       ),
+      body: Text("MAP"),
     );
   }
 }

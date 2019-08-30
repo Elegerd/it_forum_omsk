@@ -3,6 +3,7 @@ import 'package:it_forum_omsk/widgets/custom_tabbar.dart';
 import 'package:it_forum_omsk/widgets/event_card.dart';
 import 'package:it_forum_omsk/widgets/event_container.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class SpeakerNote extends StatefulWidget {
@@ -19,13 +20,14 @@ class _SpeakerNote extends State<SpeakerNote> with SingleTickerProviderStateMixi
   TabController tabController;
   List<Tab> tabs;
 
+  static const mainColor = Color.fromRGBO(50, 21, 121, 1);
   static const contentColor = Color.fromRGBO(31, 32, 65, 0.8);
   static const titleStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Roboto', color: contentColor);
+  static const noteStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'Roboto', color: contentColor, letterSpacing: 0.7);
   static const tabStyle = TextStyle(fontFamily: 'Roboto', fontSize: 16.0);
 
   @override
   void initState() {
-    super.initState();
     tabs = [
       Tab(
         child: Text('Информация',
@@ -44,6 +46,7 @@ class _SpeakerNote extends State<SpeakerNote> with SingleTickerProviderStateMixi
       ),
     ];
     tabController = TabController(vsync: this, length: tabs.length);
+    super.initState();
   }
 
   @override
@@ -60,13 +63,12 @@ class _SpeakerNote extends State<SpeakerNote> with SingleTickerProviderStateMixi
           customTabBar(tabs, tabController),
           Expanded(
             child: TabBarView(
-              physics: NeverScrollableScrollPhysics(),
               controller: tabController,
               children: <Widget>[
                 ListView(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
                   children: <Widget>[
-                    Text(widget.speaker['note'] ?? "", style: titleStyle,),
+                    Text(widget.speaker['note'] ?? "", style: noteStyle,),
                   ],
                 ),
                 StreamBuilder<QuerySnapshot> (
@@ -78,12 +80,19 @@ class _SpeakerNote extends State<SpeakerNote> with SingleTickerProviderStateMixi
                       }
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
-                          return Center(child: CircularProgressIndicator());
+                          return Center(
+                            child: SpinKitPulse(
+                              color: mainColor,
+                              size: 10.0,
+                            ),
+                          );
                         default:
                           var events = [];
+                          var documentId = [];
                           for (var document in snapshot.data.documents) {
                             for(var event in document.data['array_events']){
                               if (event['id_speaker'] == widget.idSpeaker) {
+                                documentId.add(document.documentID);
                                 events.add(event);
                               }
                             }
@@ -99,7 +108,7 @@ class _SpeakerNote extends State<SpeakerNote> with SingleTickerProviderStateMixi
                                   Navigator.pushReplacement(context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          EventCard(events[index]),
+                                          EventCard(index, documentId[index], events[index]),
                                     ),
                                   );
                                 },
@@ -110,9 +119,9 @@ class _SpeakerNote extends State<SpeakerNote> with SingleTickerProviderStateMixi
                     }
                 ),
                 ListView(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
                   children: <Widget>[
-                    Text(widget.speaker['note'] ?? "", style: titleStyle,),
+                    Text(widget.speaker['note'] ?? "", style: noteStyle,),
                   ],
                 ),
               ],
