@@ -3,10 +3,6 @@
   Мобильное приложение разрабатываемое в рамках [@Mobilatorium](https://vk.com/mobilatorium)
 для омского IT-Форума.
 
-## Дизайн мобильного приложения
-
-![Alt-текст](https://github.com/Elegerd/it_forum_omsk/blob/master/screenshots/Screenshot.png "Speaker IT-Forum")
-
 ## Запуск мобильного приложения
 
   IT-Forum Omsk можно запустить, как и любое другое приложение Flutter,

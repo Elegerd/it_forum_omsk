@@ -179,9 +179,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               height: 100,
                               child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Должность',
-                                  ),
                                   controller: positionInputController,
                               ),
                             ),
